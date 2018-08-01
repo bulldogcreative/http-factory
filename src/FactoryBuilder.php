@@ -2,6 +2,8 @@
 
 namespace Bulldog\HttpFactory;
 
+use Bulldog\HttpFactory\Interfaces\HttpFactoryInterface;
+
 class FactoryBuilder
 {
     public static function get($choice): HttpFactoryInterface

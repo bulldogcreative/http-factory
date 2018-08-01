@@ -13,6 +13,7 @@ use Bulldog\HttpFactory\Factories\Slim\ServerRequestFactory;
 use Bulldog\HttpFactory\Factories\Slim\StreamFactory;
 use Bulldog\HttpFactory\Factories\Slim\UploadedFileFactory;
 use Bulldog\HttpFactory\Factories\Slim\UriFactory;
+use Bulldog\HttpFactory\Interfaces\HttpFactoryInterface;
 
 class SlimHttpFactory implements HttpFactoryInterface
 {

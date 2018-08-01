@@ -1,6 +1,6 @@
 <?php
 
-namespace Bulldog\HttpFactory;
+namespace Bulldog\HttpFactory\Interfaces;
 
 use Psr\Http\Message\RequestFactoryInterface;
 use Psr\Http\Message\ResponseFactoryInterface;

@@ -14,6 +14,7 @@ use Bulldog\HttpFactory\Factories\Guzzle\ServerRequestFactory;
 use Bulldog\HttpFactory\Factories\Guzzle\StreamFactory;
 use Bulldog\HttpFactory\Factories\Guzzle\UploadedFileFactory;
 use Bulldog\HttpFactory\Factories\Guzzle\UriFactory;
+use Bulldog\HttpFactory\Interfaces\HttpFactoryInterface;
 
 class GuzzleHttpFactory implements HttpFactoryInterface
 {
