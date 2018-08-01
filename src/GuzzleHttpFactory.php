@@ -2,14 +2,14 @@
 
 namespace Bulldog\HttpFactory;
 
-use Bulldog\HttpFactory\Factories\RequestFactory;
-use Bulldog\HttpFactory\Factories\ResponseFactory;
-use Bulldog\HttpFactory\Factories\ServerRequestFactory;
-use Bulldog\HttpFactory\Factories\StreamFactory;
-use Bulldog\HttpFactory\Factories\UploadedFileFactory;
-use Bulldog\HttpFactory\Factories\UriFactory;
+use Bulldog\HttpFactory\Factories\Guzzle\RequestFactory;
+use Bulldog\HttpFactory\Factories\Guzzle\ResponseFactory;
+use Bulldog\HttpFactory\Factories\Guzzle\ServerRequestFactory;
+use Bulldog\HttpFactory\Factories\Guzzle\StreamFactory;
+use Bulldog\HttpFactory\Factories\Guzzle\UploadedFileFactory;
+use Bulldog\HttpFactory\Factories\Guzzle\UriFactory;
 
-class HttpFactory implements HttpFactoryInterface
+class GuzzleHttpFactory implements HttpFactoryInterface
 {
     /**
      * @return RequestFactory

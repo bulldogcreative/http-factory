@@ -4,7 +4,7 @@ namespace Bulldog\HttpFactory;
 
 interface HttpFactoryInterface
 {
-    public function requestFactory();
+    public function requestFactory(): RequestInterface;
 
     public function responseFactory();
 
