@@ -5,6 +5,7 @@ namespace Bulldog\HttpFactory\Factories\Zend;
 use Zend\Diactoros\LazyOpenStream;
 use Psr\Http\Message\StreamInterface;
 use Psr\Http\Message\StreamFactoryInterface;
+use function GuzzleHttp\Psr7\stream_for;
 
 class StreamFactory implements StreamFactoryInterface
 {
