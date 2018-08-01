@@ -6,7 +6,7 @@ use Bulldog\HttpFactory\FactoryBuilder;
 
 class UriFactoryTest extends TestCase
 {
-    public function testCreateUri()
+    public function testCreateUriGuzzle()
     {
         $uriFactory = (FactoryBuilder::get('guzzle'))->uriFactory();
         $r = $uriFactory->createUri('/');

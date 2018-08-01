@@ -6,7 +6,7 @@ use Bulldog\HttpFactory\FactoryBuilder;
 
 class RequestFactoryTest extends TestCase
 {
-    public function testCreateRequest()
+    public function testCreateGuzzleRequest()
     {
         $requestFactory = (FactoryBuilder::get('guzzle'))->requestFactory();
         $result = $requestFactory->createRequest('GET', 'http://localhost');

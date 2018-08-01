@@ -5,7 +5,7 @@ use Bulldog\HttpFactory\FactoryBuilder;
 
 class ServerRequestFactoryTest extends TestCase
 {
-    public function testCreateServerRequest()
+    public function testCreateServerGuzzleRequest()
     {
         $serverRequest = (FactoryBuilder::get('guzzle'))->serverRequestFactory();
 

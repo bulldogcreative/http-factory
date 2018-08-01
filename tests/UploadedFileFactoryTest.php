@@ -6,7 +6,7 @@ use Bulldog\HttpFactory\FactoryBuilder;
 
 class UploadedFileFactoryTest extends TestCase
 {
-    public function testCreateUploadedFile()
+    public function testCreateUploadedFileGuzzle()
     {
         $guzzleFactory = FactoryBuilder::get('guzzle');
         $streamFactory = $guzzleFactory->streamFactory();

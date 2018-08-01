@@ -6,7 +6,7 @@ use Bulldog\HttpFactory\FactoryBuilder;
 
 class ResponseFactoryTest extends TestCase
 {
-    public function testCreateResponse()
+    public function testCreateGuzzleResponse()
     {
         $guzzleFactory = FactoryBuilder::get('guzzle');
         $responseFactory = $guzzleFactory->responseFactory();
@@ -25,7 +25,7 @@ class ResponseFactoryTest extends TestCase
         $this->assertSame('hello world', $r->getBody()->getContents());
     }
 
-    public function testNotFoundResponse()
+    public function testNotFoundGuzzleResponse()
     {
         $guzzleFactory = FactoryBuilder::get('guzzle');
         $responseFactory = $guzzleFactory->responseFactory();

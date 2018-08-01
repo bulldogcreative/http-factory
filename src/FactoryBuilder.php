@@ -12,6 +12,9 @@ class FactoryBuilder
             case 'guzzle':
                 return new GuzzleHttpFactory;
             break;
+            case 'zend':
+                return new SlimHttpFactory;
+            break;
         }
     }
 }
