@@ -20,6 +20,12 @@ class ResponseFactory implements ResponseFactoryInterface
      */
     public function createResponse(int $code = 200, string $reasonPhrase = ''): ResponseInterface
     {
-        return new Response($code, [], null, '1.1', $reasonPhrase);
+        $response = new Response('php://memory', $code, []);
+
+        if($reasonPhrase) {
+            $response = $response->withStatus($code, $reasonPhrase);
+        }
+
+        return $response;
     }
 }
