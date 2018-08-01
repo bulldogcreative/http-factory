@@ -11,4 +11,11 @@ class StreamFactoryTest extends TestCase
         $r = $streamFactory->createStream('php://temp');
         $this->assertFalse(is_resource($r));
     }
+
+    public function testCreateZendStream()
+    {
+        $streamFactory = (FactoryBuilder::get('zend'))->streamFactory();
+        $r = $streamFactory->createStream('php://memory');
+        $this->assertFalse(is_resource($r));
+    }
 }
