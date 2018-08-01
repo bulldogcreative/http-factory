@@ -1,6 +1,6 @@
 <?php
 
-namespace Bulldog\HttpFactory\Guzzle\Factories;
+namespace Bulldog\HttpFactory\Factories\Guzzle;
 
 use GuzzleHttp\Psr7\Request;
 use Psr\Http\Message\UriInterface;
