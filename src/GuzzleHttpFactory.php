@@ -2,6 +2,12 @@
 
 namespace Bulldog\HttpFactory;
 
+use Psr\Http\Message\RequestFactoryInterface;
+use Psr\Http\Message\ResponseFactoryInterface;
+use Psr\Http\Message\ServerRequestFactoryInterface;
+use Psr\Http\Message\StreamFactoryInterface;
+use Psr\Http\Message\UploadedFileFactoryInterface;
+use Psr\Http\Message\UriFactoryInterface;
 use Bulldog\HttpFactory\Factories\Guzzle\RequestFactory;
 use Bulldog\HttpFactory\Factories\Guzzle\ResponseFactory;
 use Bulldog\HttpFactory\Factories\Guzzle\ServerRequestFactory;
@@ -14,7 +20,7 @@ class GuzzleHttpFactory implements HttpFactoryInterface
     /**
      * @return RequestFactory
      */
-    public function requestFactory(): RequestInterface
+    public function requestFactory(): RequestFactoryInterface
     {
         return new RequestFactory();
     }
@@ -22,7 +28,7 @@ class GuzzleHttpFactory implements HttpFactoryInterface
     /**
      * @return ResponseFactory
      */
-    public function responseFactory(): ResponseInterface
+    public function responseFactory(): ResponseFactoryInterface
     {
         return new ResponseFactory();
     }
@@ -30,7 +36,7 @@ class GuzzleHttpFactory implements HttpFactoryInterface
     /**
      * @return ServerRequestFactory
      */
-    public function serverRequestFactory(): ServerRequestInterface
+    public function serverRequestFactory(): ServerRequestFactoryInterface
     {
         return new ServerRequestFactory();
     }
@@ -38,7 +44,7 @@ class GuzzleHttpFactory implements HttpFactoryInterface
     /**
      * @return StreamFactory
      */
-    public function streamFactory(): StreamInterface
+    public function streamFactory(): StreamFactoryInterface
     {
         return new StreamFactory();
     }
@@ -46,7 +52,7 @@ class GuzzleHttpFactory implements HttpFactoryInterface
     /**
      * @return UploadedFileFactory
      */
-    public function uploadedFileFactory(): UploadedFileInterface
+    public function uploadedFileFactory(): UploadedFileFactoryInterface
     {
         return new UploadedFileFactory();
     }
@@ -54,7 +60,7 @@ class GuzzleHttpFactory implements HttpFactoryInterface
     /**
      * @return UriFactory
      */
-    public function uriFactory(): UriInterface
+    public function uriFactory(): UriFactoryInterface
     {
         return new UriFactory();
     }

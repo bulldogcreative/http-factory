@@ -2,6 +2,11 @@
 
 namespace Bulldog\HttpFactory;
 
+use Psr\Http\Message\ResponseFactoryInterface;
+use Psr\Http\Message\ServerRequestFactoryInterface;
+use Psr\Http\Message\StreamFactoryInterface;
+use Psr\Http\Message\UploadedFileFactoryInterface;
+use Psr\Http\Message\UriFactoryInterface;
 use Bulldog\HttpFactory\Factories\Slim\RequestFactory;
 use Bulldog\HttpFactory\Factories\Slim\ResponseFactory;
 use Bulldog\HttpFactory\Factories\Slim\ServerRequestFactory;
@@ -14,7 +19,7 @@ class SlimHttpFactory implements HttpFactoryInterface
     /**
      * @return RequestFactory
      */
-    public function requestFactory(): RequestInterface
+    public function requestFactory(): RequestFactoryInterface
     {
         return new RequestFactory();
     }
@@ -22,7 +27,7 @@ class SlimHttpFactory implements HttpFactoryInterface
     /**
      * @return ResponseFactory
      */
-    public function responseFactory(): ResponseInterface
+    public function responseFactory(): ResponseFactoryInterface
     {
         return new ResponseFactory();
     }
@@ -30,7 +35,7 @@ class SlimHttpFactory implements HttpFactoryInterface
     /**
      * @return ServerRequestFactory
      */
-    public function serverRequestFactory(): ServerRequestInterface
+    public function serverRequestFactory(): ServerRequestFactoryInterface
     {
         return new ServerRequestFactory();
     }
@@ -38,7 +43,7 @@ class SlimHttpFactory implements HttpFactoryInterface
     /**
      * @return StreamFactory
      */
-    public function streamFactory(): StreamInterface
+    public function streamFactory(): StreamFactoryInterface
     {
         return new StreamFactory();
     }
@@ -46,7 +51,7 @@ class SlimHttpFactory implements HttpFactoryInterface
     /**
      * @return UploadedFileFactory
      */
-    public function uploadedFileFactory(): UploadedFileInterface
+    public function uploadedFileFactory(): UploadedFileFactoryInterface
     {
         return new UploadedFileFactory();
     }
@@ -54,7 +59,7 @@ class SlimHttpFactory implements HttpFactoryInterface
     /**
      * @return UriFactory
      */
-    public function uriFactory(): UriInterface
+    public function uriFactory(): UriFactoryInterface
     {
         return new UriFactory();
     }

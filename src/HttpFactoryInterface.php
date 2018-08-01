@@ -2,17 +2,24 @@
 
 namespace Bulldog\HttpFactory;
 
+use Psr\Http\Message\RequestFactoryInterface;
+use Psr\Http\Message\ResponseFactoryInterface;
+use Psr\Http\Message\ServerRequestFactoryInterface;
+use Psr\Http\Message\StreamFactoryInterface;
+use Psr\Http\Message\UploadedFileFactoryInterface;
+use Psr\Http\Message\UriFactoryInterface;
+
 interface HttpFactoryInterface
 {
-    public function requestFactory(): RequestInterface;
+    public function requestFactory(): RequestFactoryInterface;
 
-    public function responseFactory(): ResponseInterface;
+    public function responseFactory(): ResponseFactoryInterface;
 
-    public function serverRequestFactory(): ServerRequestInterface;
+    public function serverRequestFactory(): ServerRequestFactoryInterface;
 
-    public function streamFactory(): StreamInterface;
+    public function streamFactory(): StreamFactoryInterface;
 
-    public function uploadedFileFactory(): UploadedFileInterface;
+    public function uploadedFileFactory(): UploadedFileFactoryInterface;
 
-    public function uriFactory(): UriInterface;
+    public function uriFactory(): UriFactoryInterface;
 }
