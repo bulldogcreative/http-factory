@@ -2,13 +2,13 @@
 
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\RequestInterface;
-use Bulldog\HttpFactory\GuzzleHttpFactory;
+use Bulldog\HttpFactory\FactoryBuilder;
 
 class RequestFactoryTest extends TestCase
 {
     public function testCreateRequest()
     {
-        $requestFactory = (new GuzzleHttpFactory)->requestFactory();
+        $requestFactory = (FactoryBuilder::get('guzzle'))->requestFactory();
         $result = $requestFactory->createRequest('GET', 'http://localhost');
         $this->assertInstanceOf(RequestInterface::class, $result);
         $this->assertEquals($result->getMethod(), 'GET');

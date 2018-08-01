@@ -2,14 +2,13 @@
 
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\ResponseInterface;
-use Bulldog\HttpFactory\GuzzleHttpFactory;
-use Bulldog\HttpFactory\Factories\Guzzle\ResponseFactory;
+use Bulldog\HttpFactory\FactoryBuilder;
 
 class ResponseFactoryTest extends TestCase
 {
     public function testCreateResponse()
     {
-        $guzzleFactory = new GuzzleHttpFactory();
+        $guzzleFactory = FactoryBuilder::get('guzzle');
         $responseFactory = $guzzleFactory->responseFactory();
         $r = $responseFactory->createResponse(200, 'OK');
         $this->assertInstanceOf(ResponseInterface::class, $r);
@@ -28,7 +27,7 @@ class ResponseFactoryTest extends TestCase
 
     public function testNotFoundResponse()
     {
-        $guzzleFactory = new GuzzleHttpFactory();
+        $guzzleFactory = FactoryBuilder::get('guzzle');
         $responseFactory = $guzzleFactory->responseFactory();
         $r = $responseFactory->createResponse(404);
         $this->assertSame(404, $r->getStatusCode());

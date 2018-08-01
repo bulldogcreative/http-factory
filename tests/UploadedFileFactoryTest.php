@@ -2,13 +2,13 @@
 
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\UploadedFileInterface;
-use Bulldog\HttpFactory\GuzzleHttpFactory;
+use Bulldog\HttpFactory\FactoryBuilder;
 
 class UploadedFileFactoryTest extends TestCase
 {
     public function testCreateUploadedFile()
     {
-        $guzzleFactory = new GuzzleHttpFactory();
+        $guzzleFactory = FactoryBuilder::get('guzzle');
         $streamFactory = $guzzleFactory->streamFactory();
         $resource = $streamFactory->createStream('php://temp');
 

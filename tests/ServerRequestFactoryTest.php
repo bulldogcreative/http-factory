@@ -1,13 +1,13 @@
 <?php
 
 use PHPUnit\Framework\TestCase;
-use Bulldog\HttpFactory\GuzzleHttpFactory;
+use Bulldog\HttpFactory\FactoryBuilder;
 
 class ServerRequestFactoryTest extends TestCase
 {
     public function testCreateServerRequest()
     {
-        $serverRequest = (new GuzzleHttpFactory)->serverRequestFactory();
+        $serverRequest = (FactoryBuilder::get('guzzle'))->serverRequestFactory();
 
         $params = ['name' => 'value'];
 
