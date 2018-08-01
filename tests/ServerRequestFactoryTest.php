@@ -14,4 +14,14 @@ class ServerRequestFactoryTest extends TestCase
         $r = $serverRequest->createServerRequest('GET', '/', $params);
         $this->assertSame($params, $r->getServerParams());
     }
+
+    public function testCreateServerZendRequest()
+    {
+        $serverRequest = (FactoryBuilder::get('zend'))->serverRequestFactory();
+
+        $params = ['name' => 'value'];
+
+        $r = $serverRequest->createServerRequest('GET', '/', $params);
+        $this->assertSame($params, $r->getServerParams());
+    }
 }
