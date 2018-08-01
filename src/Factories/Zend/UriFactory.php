@@ -1,8 +1,8 @@
 <?php
 
-namespace Bulldog\HttpFactory\Factories;
+namespace Bulldog\HttpFactory\Factories\Zend;
 
-use GuzzleHttp\Psr7\Uri;
+use Zend\Diactoros\Uri;
 use Psr\Http\Message\UriInterface;
 use Psr\Http\Message\UriFactoryInterface;
 

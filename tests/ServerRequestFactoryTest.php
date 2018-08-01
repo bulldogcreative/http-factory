@@ -1,17 +1,26 @@
 <?php
 
 use PHPUnit\Framework\TestCase;
-use Psr\Http\Message\ResponseInterface;
-use Bulldog\HttpFactory\Factories\ServerRequestFactory;
+use Bulldog\HttpFactory\FactoryBuilder;
 
 class ServerRequestFactoryTest extends TestCase
 {
-    public function testCreateServerRequest()
+    public function testCreateServerGuzzleRequest()
     {
-        $serverRequest = new ServerRequestFactory();
-        
+        $serverRequest = (FactoryBuilder::get('guzzle'))->serverRequestFactory();
+
         $params = ['name' => 'value'];
-        
+
+        $r = $serverRequest->createServerRequest('GET', '/', $params);
+        $this->assertSame($params, $r->getServerParams());
+    }
+
+    public function testCreateServerZendRequest()
+    {
+        $serverRequest = (FactoryBuilder::get('zend'))->serverRequestFactory();
+
+        $params = ['name' => 'value'];
+
         $r = $serverRequest->createServerRequest('GET', '/', $params);
         $this->assertSame($params, $r->getServerParams());
     }

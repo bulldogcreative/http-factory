@@ -1,8 +1,8 @@
 <?php
 
-namespace Bulldog\HttpFactory\Factories;
+namespace Bulldog\HttpFactory\Factories\Zend;
 
-use GuzzleHttp\Psr7\ServerRequest;
+use Zend\Diactoros\ServerRequest;
 use Psr\Http\Message\UriInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Message\ServerRequestFactoryInterface;
@@ -27,6 +27,6 @@ class ServerRequestFactory implements ServerRequestFactoryInterface
      */
     public function createServerRequest(string $method, $uri, array $serverParams = []): ServerRequestInterface
     {
-        return new ServerRequest($method, $uri, [], null, '1.1', $serverParams);
+        return new ServerRequest($serverParams, [], $uri, $method);
     }
 }
