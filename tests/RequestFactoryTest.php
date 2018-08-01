@@ -14,4 +14,13 @@ class RequestFactoryTest extends TestCase
         $this->assertEquals($result->getMethod(), 'GET');
         $this->assertEquals($result->getHeaders()['Host'][0], 'localhost');
     }
+
+    public function testCreateZendRequest()
+    {
+        $requestFactory = (FactoryBuilder::get('zend'))->requestFactory();
+        $result = $requestFactory->createRequest('GET', 'http://localhost');
+        $this->assertInstanceOf(RequestInterface::class, $result);
+        $this->assertEquals($result->getMethod(), 'GET');
+        $this->assertEquals($result->getHeaders()['Host'][0], 'localhost');
+    }
 }

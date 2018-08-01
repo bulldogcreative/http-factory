@@ -13,7 +13,7 @@ class FactoryBuilder
                 return new GuzzleHttpFactory;
             break;
             case 'zend':
-                return new SlimHttpFactory;
+                return new ZendHttpFactory;
             break;
         }
     }
