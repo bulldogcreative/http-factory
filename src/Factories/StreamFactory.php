@@ -2,6 +2,8 @@
 
 namespace Bulldog\HttpFactory\Factories;
 
+use GuzzleHttp\Psr7\LazyOpenStream;
+use function GuzzleHttp\Psr7\stream_for;
 use Psr\Http\Message\StreamInterface;
 use Psr\Http\Message\StreamFactoryInterface;
 
@@ -13,10 +15,12 @@ class StreamFactory implements StreamFactoryInterface
      * The stream SHOULD be created with a temporary resource.
      *
      * @param string $content String content with which to populate the stream.
+     *
+     * @return StreamInterface
      */
     public function createStream(string $content = ''): StreamInterface
     {
-
+        return stream_for($content);
     }
 
     /**
@@ -27,15 +31,14 @@ class StreamFactory implements StreamFactoryInterface
      *
      * The `$filename` MAY be any string supported by `fopen()`.
      *
-     * @param string $filename The filename or stream URI to use as basis of stream.
-     * @param string $mode The mode with which to open the underlying filename/stream.
+     * @param string $filename Filename or stream URI to use as basis of stream.
+     * @param string $mode Mode with which to open the underlying filename/stream.
      *
-     * @throws \RuntimeException If the file cannot be opened.
-     * @throws \InvalidArgumentException If the mode is invalid.
+     * @return StreamInterface
      */
     public function createStreamFromFile(string $filename, string $mode = 'r'): StreamInterface
     {
-
+        return new LazyOpenStream($filename, $mode);
     }
 
     /**
@@ -43,10 +46,12 @@ class StreamFactory implements StreamFactoryInterface
      *
      * The stream MUST be readable and may be writable.
      *
-     * @param resource $resource The PHP resource to use as the basis for the stream.
+     * @param resource $resource PHP resource to use as basis of stream.
+     *
+     * @return StreamInterface
      */
     public function createStreamFromResource($resource): StreamInterface
     {
-
+        return stream_for($resource);
     }
 }

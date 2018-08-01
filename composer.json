@@ -1,6 +1,7 @@
 {
     "name": "bulldog/http-factory",
     "description": "A PSR-17 compliant HTTP Factory",
+    "keywords": ["request", "response", "message", "stream", "http", "uri", "url", "factory"],
     "type": "library",
     "license": "MIT",
     "autoload": {
@@ -14,9 +15,14 @@
             "email": "ldurfee@bulldogcreative.com"
         }
     ],
+    "provide": {
+        "psr/http-factory": "1.0.0"
+    },
     "require": {
         "psr/http-factory": "^1.0",
-        "psr/http-message": "^1.0",
-        "symfony/http-foundation": "^4.1"
+        "guzzlehttp/psr7": "^1.4"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^7.2"
     }
 }

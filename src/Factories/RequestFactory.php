@@ -2,6 +2,7 @@
 
 namespace Bulldog\HttpFactory\Factories;
 
+use GuzzleHttp\Psr7\Request;
 use Psr\Http\Message\UriInterface;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\RequestFactoryInterface;
@@ -20,6 +21,6 @@ class RequestFactory implements RequestFactoryInterface
      */
     public function createRequest(string $method, $uri): RequestInterface
     {
-        // TODO: Implement createRequest() method.
+        return new Request($method, $uri);
     }
 }
