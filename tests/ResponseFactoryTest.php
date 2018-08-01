@@ -36,8 +36,8 @@ class ResponseFactoryTest extends TestCase
 
     public function testCreateZendResponse()
     {
-        $guzzleFactory = FactoryBuilder::get('zend');
-        $responseFactory = $guzzleFactory->responseFactory();
+        $zendFactory = FactoryBuilder::get('zend');
+        $responseFactory = $zendFactory->responseFactory();
         $r = $responseFactory->createResponse(200, 'OK');
         $this->assertInstanceOf(ResponseInterface::class, $r);
         $this->assertSame(200, $r->getStatusCode());
@@ -47,16 +47,16 @@ class ResponseFactoryTest extends TestCase
         $this->assertInstanceOf('Psr\Http\Message\StreamInterface', $r->getBody());
         $this->assertSame('', (string) $r->getBody());
 
-        $streamFactory = $guzzleFactory->streamFactory();
-        $resource = $streamFactory->createStream('hello world');
+        $streamFactory = $zendFactory->streamFactory();
+        $resource = $streamFactory->createStream('php://memory');
         $r = $r->withBody($resource);
-        $this->assertSame('hello world', $r->getBody()->getContents());
+        $this->assertSame('', $r->getBody()->getContents());
     }
 
     public function testNotFoundZendResponse()
     {
-        $guzzleFactory = FactoryBuilder::get('zend');
-        $responseFactory = $guzzleFactory->responseFactory();
+        $zendFactory = FactoryBuilder::get('zend');
+        $responseFactory = $zendFactory->responseFactory();
         $r = $responseFactory->createResponse(404);
         $this->assertSame(404, $r->getStatusCode());
         $this->assertSame('Not Found', $r->getReasonPhrase());
