@@ -22,7 +22,7 @@ class ResponseFactory implements ResponseFactoryInterface
     {
         $response = new Response('php://memory', $code, []);
 
-        if($reasonPhrase) {
+        if ($reasonPhrase) {
             $response = $response->withStatus($code, $reasonPhrase);
         }
 

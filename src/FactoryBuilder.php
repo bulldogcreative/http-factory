@@ -8,7 +8,7 @@ class FactoryBuilder
 {
     public static function get($choice): HttpFactoryInterface
     {
-        switch($choice) {
+        switch ($choice) {
             case 'guzzle':
                 return new GuzzleHttpFactory;
             break;
