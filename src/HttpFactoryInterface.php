@@ -6,13 +6,13 @@ interface HttpFactoryInterface
 {
     public function requestFactory(): RequestInterface;
 
-    public function responseFactory();
+    public function responseFactory(): ResponseInterface;
 
-    public function serverRequestFactory();
+    public function serverRequestFactory(): ServerRequestInterface;
 
-    public function streamFactory();
+    public function streamFactory(): StreamInterface;
 
-    public function uploadedFileFactory();
+    public function uploadedFileFactory(): UploadedFileInterface;
 
-    public function uriFactory();
+    public function uriFactory(): UriInterface;
 }

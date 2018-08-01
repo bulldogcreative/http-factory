@@ -14,7 +14,7 @@ class GuzzleHttpFactory implements HttpFactoryInterface
     /**
      * @return RequestFactory
      */
-    public function requestFactory()
+    public function requestFactory(): RequestInterface
     {
         return new RequestFactory();
     }
@@ -22,7 +22,7 @@ class GuzzleHttpFactory implements HttpFactoryInterface
     /**
      * @return ResponseFactory
      */
-    public function responseFactory()
+    public function responseFactory(): ResponseInterface
     {
         return new ResponseFactory();
     }
@@ -30,7 +30,7 @@ class GuzzleHttpFactory implements HttpFactoryInterface
     /**
      * @return ServerRequestFactory
      */
-    public function serverRequestFactory()
+    public function serverRequestFactory(): ServerRequestInterface
     {
         return new ServerRequestFactory();
     }
@@ -38,7 +38,7 @@ class GuzzleHttpFactory implements HttpFactoryInterface
     /**
      * @return StreamFactory
      */
-    public function streamFactory()
+    public function streamFactory(): StreamInterface
     {
         return new StreamFactory();
     }
@@ -46,7 +46,7 @@ class GuzzleHttpFactory implements HttpFactoryInterface
     /**
      * @return UploadedFileFactory
      */
-    public function uploadedFileFactory()
+    public function uploadedFileFactory(): UploadedFileInterface
     {
         return new UploadedFileFactory();
     }
@@ -54,7 +54,7 @@ class GuzzleHttpFactory implements HttpFactoryInterface
     /**
      * @return UriFactory
      */
-    public function uriFactory()
+    public function uriFactory(): UriInterface
     {
         return new UriFactory();
     }
