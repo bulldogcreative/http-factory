@@ -19,7 +19,7 @@ class StreamFactory implements StreamFactoryInterface
      */
     public function createStream(string $content = ''): StreamInterface
     {
-        return stream_for($content);
+        return new Stream($content);
     }
 
     /**
@@ -37,7 +37,7 @@ class StreamFactory implements StreamFactoryInterface
      */
     public function createStreamFromFile(string $filename, string $mode = 'r'): StreamInterface
     {
-        return new LazyOpenStream($filename, $mode);
+        return new Stream(fopen($filename), $mode);
     }
 
     /**
@@ -51,6 +51,6 @@ class StreamFactory implements StreamFactoryInterface
      */
     public function createStreamFromResource($resource): StreamInterface
     {
-        return stream_for($resource);
+        return new Stream($resource);
     }
 }
