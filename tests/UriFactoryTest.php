@@ -2,7 +2,7 @@
 
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\UriInterface;
-use Bulldog\HttpFactory\Factories\UriFactory;
+use Bulldog\HttpFactory\Factories\Guzzle\UriFactory;
 
 class UriFactoryTest extends TestCase
 {
@@ -10,7 +10,7 @@ class UriFactoryTest extends TestCase
     {
         $uriFactory = new UriFactory();
         $r = $uriFactory->createUri('/');
-        
+
         $this->assertInstanceOf(UriInterface::class, $r);
     }
 }

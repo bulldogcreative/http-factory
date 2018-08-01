@@ -2,8 +2,8 @@
 
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\UploadedFileInterface;
-use Bulldog\HttpFactory\Factories\StreamFactory;
-use Bulldog\HttpFactory\Factories\UploadedFileFactory;
+use Bulldog\HttpFactory\Factories\Guzzle\StreamFactory;
+use Bulldog\HttpFactory\Factories\Guzzle\UploadedFileFactory;
 
 class UploadedFileFactoryTest extends TestCase
 {
@@ -11,7 +11,7 @@ class UploadedFileFactoryTest extends TestCase
     {
         $streamFactory = new StreamFactory();
         $resource = $streamFactory->createStream('php://temp');
-        
+
         $uploadedFileFactory = new UploadedFileFactory();
         $r = $uploadedFileFactory->createUploadedFile(
             $resource,
@@ -20,7 +20,7 @@ class UploadedFileFactoryTest extends TestCase
             'filename.txt',
             'txt'
         );
-        
+
         $this->assertInstanceOf(UploadedFileInterface::class, $r);
     }
 }

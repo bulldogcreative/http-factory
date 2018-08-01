@@ -1,7 +1,7 @@
 <?php
 
 use PHPUnit\Framework\TestCase;
-use Bulldog\HttpFactory\Factories\StreamFactory;
+use Bulldog\HttpFactory\Factories\Guzzle\StreamFactory;
 
 class StreamFactoryTest extends TestCase
 {

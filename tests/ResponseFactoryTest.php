@@ -2,7 +2,7 @@
 
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\ResponseInterface;
-use Bulldog\HttpFactory\Factories\ResponseFactory;
+use Bulldog\HttpFactory\Factories\Guzzle\ResponseFactory;
 
 class ResponseFactoryTest extends TestCase
 {
@@ -17,13 +17,13 @@ class ResponseFactoryTest extends TestCase
         $this->assertSame([], $r->getHeaders());
         $this->assertInstanceOf('Psr\Http\Message\StreamInterface', $r->getBody());
         $this->assertSame('', (string) $r->getBody());
-        
+
         $streamFactory = new Bulldog\HttpFactory\Factories\StreamFactory();
         $resource = $streamFactory->createStream('hello world');
         $r = $r->withBody($resource);
         $this->assertSame('hello world', $r->getBody()->getContents());
     }
-    
+
     public function testNotFoundResponse()
     {
         $responseFactory = new ResponseFactory();

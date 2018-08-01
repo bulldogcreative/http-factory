@@ -2,7 +2,7 @@
 
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\RequestInterface;
-use Bulldog\HttpFactory\Factories\RequestFactory;
+use Bulldog\HttpFactory\Factories\Guzzle\RequestFactory;
 
 class RequestFactoryTest extends TestCase
 {
