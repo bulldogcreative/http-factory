@@ -3,7 +3,6 @@
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\RequestInterface;
 use Bulldog\HttpFactory\GuzzleHttpFactory;
-use Bulldog\HttpFactory\Factories\Guzzle\RequestFactory;
 
 class RequestFactoryTest extends TestCase
 {

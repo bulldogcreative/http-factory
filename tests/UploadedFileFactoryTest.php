@@ -2,17 +2,17 @@
 
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\UploadedFileInterface;
-use Bulldog\HttpFactory\Factories\Guzzle\StreamFactory;
-use Bulldog\HttpFactory\Factories\Guzzle\UploadedFileFactory;
+use Bulldog\HttpFactory\GuzzleHttpFactory;
 
 class UploadedFileFactoryTest extends TestCase
 {
     public function testCreateUploadedFile()
     {
-        $streamFactory = new StreamFactory();
+        $guzzleFactory = new GuzzleHttpFactory();
+        $streamFactory = $guzzleFactory->streamFactory();
         $resource = $streamFactory->createStream('php://temp');
 
-        $uploadedFileFactory = new UploadedFileFactory();
+        $uploadedFileFactory = $guzzleFactory->uploadedFileFactory();
         $r = $uploadedFileFactory->createUploadedFile(
             $resource,
             1,

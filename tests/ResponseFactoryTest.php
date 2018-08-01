@@ -2,13 +2,15 @@
 
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\ResponseInterface;
+use Bulldog\HttpFactory\GuzzleHttpFactory;
 use Bulldog\HttpFactory\Factories\Guzzle\ResponseFactory;
 
 class ResponseFactoryTest extends TestCase
 {
     public function testCreateResponse()
     {
-        $responseFactory = new ResponseFactory();
+        $guzzleFactory = new GuzzleHttpFactory();
+        $responseFactory = $guzzleFactory->responseFactory();
         $r = $responseFactory->createResponse(200, 'OK');
         $this->assertInstanceOf(ResponseInterface::class, $r);
         $this->assertSame(200, $r->getStatusCode());
@@ -18,7 +20,7 @@ class ResponseFactoryTest extends TestCase
         $this->assertInstanceOf('Psr\Http\Message\StreamInterface', $r->getBody());
         $this->assertSame('', (string) $r->getBody());
 
-        $streamFactory = new Bulldog\HttpFactory\Factories\Guzzle\StreamFactory();
+        $streamFactory = $guzzleFactory->streamFactory();
         $resource = $streamFactory->createStream('hello world');
         $r = $r->withBody($resource);
         $this->assertSame('hello world', $r->getBody()->getContents());
@@ -26,7 +28,8 @@ class ResponseFactoryTest extends TestCase
 
     public function testNotFoundResponse()
     {
-        $responseFactory = new ResponseFactory();
+        $guzzleFactory = new GuzzleHttpFactory();
+        $responseFactory = $guzzleFactory->responseFactory();
         $r = $responseFactory->createResponse(404);
         $this->assertSame(404, $r->getStatusCode());
         $this->assertSame('Not Found', $r->getReasonPhrase());

@@ -2,9 +2,9 @@
 
 namespace Bulldog\HttpFactory;
 
-class FactoryMaker
+class FactoryBuilder
 {
-    public static function getFactory($choice)
+    public static function get($choice): HttpFactoryInterface
     {
         switch($choice) {
             case 'guzzle':
