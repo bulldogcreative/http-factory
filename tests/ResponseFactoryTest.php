@@ -18,7 +18,7 @@ class ResponseFactoryTest extends TestCase
         $this->assertInstanceOf('Psr\Http\Message\StreamInterface', $r->getBody());
         $this->assertSame('', (string) $r->getBody());
 
-        $streamFactory = new Bulldog\HttpFactory\Factories\StreamFactory();
+        $streamFactory = new Bulldog\HttpFactory\Factories\Guzzle\StreamFactory();
         $resource = $streamFactory->createStream('hello world');
         $r = $r->withBody($resource);
         $this->assertSame('hello world', $r->getBody()->getContents());
