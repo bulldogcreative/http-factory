@@ -5,4 +5,4 @@ php:
 install:
     - flags="--ansi --prefer-dist --no-interaction --optimize-autoloader --no-suggest --no-progress"
     - composer install $flags
-script: phpunit
+script: vendor/bin/phpunit
