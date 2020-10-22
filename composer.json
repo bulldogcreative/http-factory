@@ -16,7 +16,7 @@
         }
     ],
     "provide": {
-        "psr/http-factory": "1.0.0"
+        "psr/http-factory-implementation": "1.0.0"
     },
     "require": {
         "psr/http-factory": "^1.0",
